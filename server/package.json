@@ -1,0 +1,26 @@
+{
+  "name": "pratico-ml-server",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gfpaiva/pratico-ml.git"
+  },
+  "author": "Guilherme Paiva",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gfpaiva/pratico-ml/issues"
+  },
+  "homepage": "https://github.com/gfpaiva/pratico-ml#readme",
+  "dependencies": {
+    "axios": "^0.17.1",
+    "body-parser": "^1.18.2",
+    "dotenv": "^4.0.0",
+    "express": "^4.16.2"
+  }
+}
