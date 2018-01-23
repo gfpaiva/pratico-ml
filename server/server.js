@@ -1,16 +1,20 @@
+require('dotenv').config();
+
 const express = require('express'),
 	app = express(),
 	server = require('http').Server(app),
 	api = express.Router(),
 	axios = require('axios'),
 	bodyParser = require('body-parser'),
+	cors = require('cors'),
 	API = require('./utils/API'),
 	Handlers = require('./utils/Handlers');
 
 app.use(bodyParser.json());
+app.use(cors());
 
 const ML_API = "https://api.mercadolibre.com";
-const CURRENCY = process.env.APP_AUTH_USER || 'ARS';
+const CURRENCY = process.env.CURRENCY || 'ARS';
 
 let initialObject = {
 		author: {
@@ -25,9 +29,6 @@ API.getCurrency(CURRENCY).then(currency => initialCurrency = currency);
 api.route('/items')
 	.get((req, res) => {
 		if(!req.query.q) res.status(400).json({error: 'Miss query q param'});
-
-		let categories = [],
-			items = [];
 
 		API.search(req.query.q)
 		.then(data => {

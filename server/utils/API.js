@@ -10,7 +10,7 @@ const API = {
 				currency: currency.symbol,
 				decimals: currency.decimal_places
 			}))
-		.catch(error => error.response)
+			.catch(error => Promise.reject(error.response))
 	),
 
 	search: q => (
@@ -21,19 +21,19 @@ const API = {
 			}
 		})
 		.then(response => response.data)
-		.catch(error => error.response)
+		.catch(error => Promise.reject(error.response))
 	),
 
 	searchById: id => (
 		axios.get(`${ML_API}/items/${id}`)
 		.then(response => response.data)
-		.catch(error => error.response)
+		.catch(error => Promise.reject(error.response))
 	),
 
 	getItemDescriptionById: id => (
 		axios.get(`${ML_API}/items/${id}/description`)
 		.then(response => response.data)
-		.catch(error => error.response)
+		.catch(error => Promise.reject(error.response))
 	)
 };
 
