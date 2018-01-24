@@ -24,6 +24,7 @@ let initialObject = {
 	},
 	initialCurrency = {};
 
+// GET CURRENCY FORMAT
 API.getCurrency(CURRENCY).then(currency => initialCurrency = currency);
 
 api.route('/items')
