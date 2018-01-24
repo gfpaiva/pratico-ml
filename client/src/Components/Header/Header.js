@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo-pt__large_plus.png';
 import { withRouter } from "react-router-dom";
+import './Header.css';
 
 class Header extends Component {
 	state = {
@@ -23,8 +24,7 @@ class Header extends Component {
 		return(
 		<header>
 			<h1>
-				:D
-				{/* <img src={logo} alt="Mercado Livre" title="Mercado Livre" /> */}
+				<img src={logo} alt="Mercado Livre" title="Mercado Livre" />
 			</h1>
 			<form action="/items" method="GET" onSubmit={e => this.handleSearch(e)}>
 				<input type="text" name="search" id="search" placeholder="Buscar produtos, marcas e muito mais..." required maxLength="120" autoComplete="off" value={this.state.searchTerm} ref={input => this.input = input} onChange={e => this.handleChange(e)} />
