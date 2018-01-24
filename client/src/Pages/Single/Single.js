@@ -18,10 +18,12 @@ class Single extends Component {
 
 		getProductById(id)
 		.then(({item}) => {
+			document.title = `Mercado Livre | ${item.title}` ;
+
 			this.setState({
 				item,
 				isLoading: false
-			})
+			});
 		})
 		.catch(error => this.setState({
 			error,

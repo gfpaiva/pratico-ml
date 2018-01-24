@@ -17,6 +17,8 @@ class Search extends Component {
 	componentDidMount() {
 		const { searchTerm } = this.props;
 
+		document.title = `Mercado Livre | Search: ${searchTerm}`;
+
 		search(searchTerm)
 		.then(({ items, categories }) => {
 			this.setState({
