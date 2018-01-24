@@ -1,39 +1,24 @@
-import React, { Component } from 'react';
-import logo from './logo-pt__large_plus.png';
-import { withRouter } from "react-router-dom";
-import './Header.css';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import FaSearch from 'react-icons/lib/fa/search'
+import './Header.scss';
 
-class Header extends Component {
-	state = {
-		searchTerm: ''
-	}
+const Header = () => (
+	<header className="header">
+		<div className="container">
+			<div className="row middle-xs center-xs between-xs">
+				<h1 className="header__logo col-xs-12 col-sm-2">
+					<Link className="header__link" to='/'>Mercado Livre</Link>
+				</h1>
+				<form className="header__form col-xs-12 col-sm" action="/items" method="GET">
+					<input className="header__input col-xs" type="text" name="search" id="search" placeholder="Buscar produtos, marcas e muito mais..." required maxLength="120" autoComplete="off" />
+					<button className="header__btn" type="submit">
+						<FaSearch />
+					</button>
+				</form>
+			</div>
+		</div>
+	</header>
+);
 
-	handleSearch = (e) => {
-		e.preventDefault();
-
-		this.props.history.push(`/items/?${this.state.searchTerm}`);
-
-		this.setState({searchTerm: ''});
-	};
-
-	handleChange(e) {
-		this.setState({searchTerm: e.target.value});
-	}
-
-	render() {
-		return(
-		<header>
-			<h1>
-				<img src={logo} alt="Mercado Livre" title="Mercado Livre" />
-			</h1>
-			<form action="/items" method="GET" onSubmit={e => this.handleSearch(e)}>
-				<input type="text" name="search" id="search" placeholder="Buscar produtos, marcas e muito mais..." required maxLength="120" autoComplete="off" value={this.state.searchTerm} ref={input => this.input = input} onChange={e => this.handleChange(e)} />
-				<button type="submit">
-					Search
-				</button>
-			</form>
-		</header>
-	)}
-};
-
-export default withRouter(Header);
+export default Header;

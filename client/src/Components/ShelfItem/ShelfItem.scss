@@ -1,0 +1,26 @@
+@import '../../Scss/_variables';
+
+.item {
+	margin: 5em 0;
+
+	@media screen and (max-width: 1024px) {
+		margin: 2em 0;
+		box-shadow: 0 5px 30px rgba(0, 0, 0, .3);
+	}
+
+	&__title {
+		font-weight: normal;
+		font-size: 1.25em;
+	}
+
+	&__price {
+		font-weight: bold;
+		font-size: 1.15em;
+	}
+
+	&__shipping {
+		color: $tertiary-color;
+
+		svg { fill: $tertiary-color }
+	}
+}

@@ -20,7 +20,7 @@ class Handlers {
 	createCategories (data) {
 		let filter = data.filters.find(filter => filter.id === 'category');
 
-		if(filter) data.categories = filter.values.map(category => category.name);
+		data.categories = filter ? filter.values.map(category => category.name) : [];
 
 		return data;
 	};

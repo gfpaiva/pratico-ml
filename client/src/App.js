@@ -1,33 +1,39 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Header from './Components/Header/Header';
-import './App.css';
+import Home from './Pages/Home/Home';
+import Search from './Pages/Search/Search';
+import Single from './Pages/Single/Single';
+import NotFound from './Pages/NotFound/NotFound';
+import { parse as queryStringParse } from 'query-string';
 
 class App extends Component {
 	render() {
 		return (
 			<div className="app">
-				<Header search={this.handleSearch} />
+				<Header />
 
-				<Switch >
-					<Route exact path="/" render={() => (
-						<div>
-							<p>Type to search <span role="img" aria-label="Nerd Face">🤓</span></p>
-						</div>
-					)}/>
+				<Switch>
+					<Route exact path="/" component={Home}/>
 
-					<Route exact path="/items/:id?" render={({ match }) => (
-						<div>
-							<p>{match.params.id}</p>
-						</div>
-					)}/>
+					<Route exact path="/items" render={({ match }) => {
+						let queryStrings = queryStringParse(window.location.search);
+
+						if(queryStrings && queryStrings.search) {
+							return <Search searchTerm={queryStrings.search} />;
+						} else {
+							return <NotFound />
+						}
+					}}/>
+
+					<Route exact path="/items/:id" component={Single}/>
 
 					{/* 404 page */}
-					<Route render={() => (<h1 style={{textAlign: 'center'}}>Page not foud <span role="img" aria-label="Sad Face">😕</span></h1>)} />
+					<Route component={NotFound} />
 				</Switch>
 			</div>
 		);
 	};
-}
+};
 
 export default App;

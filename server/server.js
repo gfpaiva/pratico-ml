@@ -55,6 +55,10 @@ api.route('/items/:id')
 		API.searchById(req.params.id)
 		.then(result => Handlers.mergeItemAndDescription(result, req.params.id))
 		.then(productWithDescription => Handlers.createInternalResponseObject(productWithDescription, initialCurrency))
+		.then(item => ({
+			...initialObject,
+			item,
+		}))
 		.then(final => res.json(final))
 		.catch(error => res.status(error.status).json({error: error.data}));
 	});
