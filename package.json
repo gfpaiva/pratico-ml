@@ -8,16 +8,8 @@
     "start": "node server.js",
     "heroku-postbuild": "cd client/ && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/gfpaiva/pratico-ml.git"
-  },
   "author": "Guilherme Paiva",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/gfpaiva/pratico-ml/issues"
-  },
-  "homepage": "https://github.com/gfpaiva/pratico-ml#readme",
   "dependencies": {
     "axios": "^0.17.1",
     "body-parser": "^1.18.2",
