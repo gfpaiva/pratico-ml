@@ -10,15 +10,6 @@
 - Express
 - Axios
 
-##### Instruction to run:
-
-- Open the terminal
-- `cd server`
-- `npm i` or `yarn`
-- `npm start` or `yarn start`
-
-Server will run on port 3001
-
 ##### Routes:
 
 - `/api/itesm?q=query`
@@ -33,15 +24,6 @@ ___
 - React
 - create-react-app
 - Sass
-
-##### Instruction to run:
-
-- Open another terminal
-- `cd client`
-- `npm i` or `yarn`
-- `npm start` or `yarn start`
-- Open your browser in `http://localhost:3000`
-- Depends on the other terminal running the server side
 
 ##### Components
 

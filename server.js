@@ -10,6 +10,7 @@ const express = require('express'),
 	API = require('./utils/API'),
 	Handlers = require('./utils/Handlers');
 
+app.use(express.static(path.resolve(__dirname, './client/build')));
 app.use(bodyParser.json());
 app.use(cors());
 
@@ -66,6 +67,11 @@ api.route('/items/:id')
 
 
 app.use('/api', api);
+
+app.get('*', (req, res) => {
+	res.sendFile(path.resolve(__dirname, './client/build', 'index.html'));
+	return;
+})
 
 server.listen(process.env.PORT || 3001, () => {
 	console.log(`running on ${process.env.PORT || 3001}`);
