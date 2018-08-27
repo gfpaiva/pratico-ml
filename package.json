@@ -4,6 +4,10 @@
   "description": "",
   "private": true,
   "main": "server.js",
+  "engines": {
+	"node": "10.9.0",
+	"npm": "6.2.0"
+  },
   "scripts": {
     "start": "node server.js",
     "heroku-postbuild": "cd client/ && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
@@ -11,10 +15,10 @@
   "author": "Guilherme Paiva",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.17.1",
+    "axios": "^0.18.0",
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
-    "dotenv": "^4.0.0",
+    "dotenv": "^6.0.0",
     "express": "^4.16.2"
   }
 }
