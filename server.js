@@ -1,6 +1,7 @@
 require('dotenv').config();
 
-const express = require('express'),
+const path = require('path')
+	express = require('express'),
 	app = express(),
 	server = require('http').Server(app),
 	api = express.Router(),

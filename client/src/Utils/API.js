@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const ML_API = `//localhost:3001/api`;
+const ML_API = `/api`;
 
 /**
  * Search items ML limit 4
